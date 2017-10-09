@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище priceModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Хранилище priceModelContainer">
+          <EntitySet Name="group" EntityType="Хранилище priceModel.group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="products" EntityType="Хранилище priceModel.products" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_products_group" Association="Хранилище priceModel.FK_products_group">
+            <End Role="group" EntitySet="group" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="title_group" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="id_group" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_group" Type="int" Nullable="false" />
+          <Property Name="title_product" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="id_product" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_products_group">
+          <End Role="group" Type="Хранилище priceModel.group" Multiplicity="1" />
+          <End Role="products" Type="Хранилище priceModel.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="id_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="priceModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="priceEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="group" EntityType="priceModel.group" />
+          <EntitySet Name="products" EntityType="priceModel.products" />
+          <AssociationSet Name="FK_products_group" Association="priceModel.FK_products_group">
+            <End Role="group" EntitySet="group" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="group">
+          <Key>
+            <PropertyRef Name="id_group" />
+          </Key>
+          <Property Name="title_group" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="id_group" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="products" Relationship="priceModel.FK_products_group" FromRole="group" ToRole="products" />
+        </EntityType>
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_group" Type="Int32" Nullable="false" />
+          <Property Name="title_product" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="id_product" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="group" Relationship="priceModel.FK_products_group" FromRole="products" ToRole="group" />
+        </EntityType>
+        <Association Name="FK_products_group">
+          <End Role="group" Type="priceModel.group" Multiplicity="1" />
+          <End Role="products" Type="priceModel.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="group">
+              <PropertyRef Name="id_group" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="id_group" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище priceModelContainer" CdmEntityContainer="priceEntities">
+          <EntitySetMapping Name="group">
+            <EntityTypeMapping TypeName="priceModel.group">
+              <MappingFragment StoreEntitySet="group">
+                <ScalarProperty Name="title_group" ColumnName="title_group" />
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="priceModel.products">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="id_group" ColumnName="id_group" />
+                <ScalarProperty Name="title_product" ColumnName="title_product" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

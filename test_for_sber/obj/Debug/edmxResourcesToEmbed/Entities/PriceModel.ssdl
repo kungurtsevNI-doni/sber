@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище priceModel" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Хранилище priceModelContainer">
+    <EntitySet Name="group" EntityType="Хранилище priceModel.group" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="products" EntityType="Хранилище priceModel.products" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_products_group" Association="Хранилище priceModel.FK_products_group">
+      <End Role="group" EntitySet="group" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="group">
+    <Key>
+      <PropertyRef Name="id_group" />
+    </Key>
+    <Property Name="title_group" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_group" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_group" Type="int" Nullable="false" />
+    <Property Name="title_product" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="id_product" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="FK_products_group">
+    <End Role="group" Type="Хранилище priceModel.group" Multiplicity="1" />
+    <End Role="products" Type="Хранилище priceModel.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="group">
+        <PropertyRef Name="id_group" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="id_group" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

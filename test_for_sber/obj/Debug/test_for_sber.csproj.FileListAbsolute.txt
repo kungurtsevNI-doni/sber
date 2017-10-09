@@ -1,0 +1,13 @@
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\test_for_sber.exe.config
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\test_for_sber.exe
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\test_for_sber.pdb
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\EntityFramework.dll
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\EntityFramework.SqlServer.dll
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\EntityFramework.xml
+D:\Проекты\sber\test_for_sber\test_for_sber\bin\Debug\EntityFramework.SqlServer.xml
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.csprojResolveAssemblyReference.cache
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.Form1.resources
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.Properties.Resources.resources
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.csproj.GenerateResource.Cache
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.exe
+D:\Проекты\sber\test_for_sber\test_for_sber\obj\Debug\test_for_sber.pdb

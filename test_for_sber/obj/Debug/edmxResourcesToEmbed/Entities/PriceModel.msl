@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище priceModelContainer" CdmEntityContainer="priceEntities">
+    <EntitySetMapping Name="group">
+      <EntityTypeMapping TypeName="priceModel.group">
+        <MappingFragment StoreEntitySet="group">
+          <ScalarProperty Name="title_group" ColumnName="title_group" />
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="priceModel.products">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="id_group" ColumnName="id_group" />
+          <ScalarProperty Name="title_product" ColumnName="title_product" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
